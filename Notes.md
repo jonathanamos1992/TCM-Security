@@ -360,24 +360,38 @@ Grab screenshot to put in reports or tickets
 
 Must compliment tool with other analysis methods
 
+### URLScan.io
+Online sandboxing tool that allows us to analyze and inspect behavior of URLs in a controlled enviornment
+Ability to provide detailed reports from the analyzed URLs behavior
+Reports scan include reputation score of the domain or verficts based on previous reports and scanning
+Can also get a screenshot of site as well
+
+Want to set to private scan if dealing with real data
+<img width="974" height="547" alt="image" src="https://github.com/user-attachments/assets/f057f177-b46b-488e-8c8f-8f16e4fd5c4a" />
 
 
+### VirusTotal
 
+Can aggregate multiple antivirus engines and other security products or tools to scan files, URLs or hashes for potential threats
 
+In details tab can get:
+final URL in case of any redirects
+serving IP address
+hash in SHA-256 of the body of the http response that was sent back from server
 
+As well as response headers
 
+### URLvoid
 
+Helps detect potentially malicious websites and perform checks on websites domain and URL reputation
+Run URL through 30 block list engines and website reputation services
 
+### Wannabrowser
 
+Simulate browser and get response from suspcious webpage
 
-
-
-
-
-
-
-
-
+Methodology: We need to collect artifcats in the form of URLS and check reputation against known sources.
+As wll as yuse our own analysis to determine if they are safe to open.
 
 
 
