@@ -228,6 +228,71 @@ For the example, the text was also encoded with quoted-printable for three layer
 
 <img width="676" height="259" alt="image" src="https://github.com/user-attachments/assets/754c804c-13f7-47ea-9b1c-a92aee6fe046" />
 
+### Email Header and Sender Analysis
+
+Received Headers
+- Read bottom to top
+
+Received-SPF: 
+Sender Policy Framework: Mechanism that allows domain owners to specify which email servers are allowed to send emails on behalf of domain
+Works by publsihign SPF records in DNS for a domain
+SPF records contain a list of IP addresses or domain names of servers that aare aithorized to send emails for the domain.
+
+To Check:
+
+'nslookup -type=txt shodan.ip | grep -i spf'
+
+or 
+
+'dig TXT shodan.io | grep -i spf'
+<img width="982" height="551" alt="image" src="https://github.com/user-attachments/assets/cd76f291-dd60-456b-b16c-7fa0979e667c" />
+
+<img width="986" height="546" alt="image" src="https://github.com/user-attachments/assets/e26dfadc-75ea-4f6d-9073-d408a46d31c2" />
+<img width="983" height="548" alt="image" src="https://github.com/user-attachments/assets/e524888e-ea3e-49cf-9984-3b8173b80b5c" />
+<img width="990" height="556" alt="image" src="https://github.com/user-attachments/assets/37f680f0-f97f-4a4c-83fe-3ba830a61593" />
+
+Doesn't verify if a sender is legitimate, but verifies that sender matches or is authorized by the domain specified in email's From address.
+If an attacker registers their own domain, and sets up SPF record themselves or uses a service like Gmail or Yahoo, attacker will pass SPF check
+Important to look into senders actual domain along with performing these authentication checks.
+
+Actual Yahoo example
+<img width="1142" height="333" alt="image" src="https://github.com/user-attachments/assets/6b0d3fa4-1471-4d7e-aa4a-64a1ba89c9f0" />
+
+Looking at 'nslookup' command, we see the policy +all allows for any server to send mail on behalf of ishask.info
+<img width="1156" height="103" alt="image" src="https://github.com/user-attachments/assets/353d0337-e8b9-4888-92be-15e26ddc08d7" />
+
+### DomainKeys Identified Mail
+Method used to authenticate the origin of email messages
+Allows a receiver to verify that an email was sent from the domain it claims to be
+Also that message content has not been tampered with during transit
+Does this using Public Key Infrastructure of PKI
+
+### DKIM
+When email is sent from domain with DKIM enabled, sending mail server add digital signature to email header using unique private key associated with that domain
+Public key published to the DNS record of the sending domian
+Upon receving the email, recipients email server is going to retrieve the public key from senders DNS record and use it to veirfy DKIM signature.
+If signature is valid and message content hasn't been tampered with, email is considered authentic and passes the check.
+
+<img width="977" height="543" alt="image" src="https://github.com/user-attachments/assets/c5015f4d-2ada-49a1-b527-6b8909a0cb13" />
+
+Doesn't evaluate content of email or intent behind
+Establishes legitimacy of domain but not if domain is malicious or intentions of attacker
+
+### Domain-based MEssage Authentication, Reporting and Conformance (DMARC)
+Works alongside of SPF and DKIM to enchance overall authentication with additional reporting mechanisms
+SPF and DKIM indiviually authenticate emails by verifying the sender's domain and ensuring message integrity,
+DMARC adds an extra layer of control and visibility for domain owners.
+
+ALlows domain owners to specify policies regarding how their emails should be handled if they fail SPF or DKIM checks
+Only outlines what actions receiving email servers SHOULD take when they encounter emails that fail DMARC checks
+Don't enforce compliance
+
+Recipients mail servers can choose whether or not to honor DMARC policies.
+
+<img width="1133" height="832" alt="image" src="https://github.com/user-attachments/assets/12fcd0d2-f2e5-4ddd-9410-ba4c0218a7a6" />
+<img width="948" height="1470" alt="image" src="https://github.com/user-attachments/assets/e1f38858-ce86-4b5f-8fe3-73f3bb22d822" />
+
+
 ### URL Analysis
 
 Step 1: Extract the URL from email content
