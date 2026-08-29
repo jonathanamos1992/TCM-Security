@@ -193,9 +193,108 @@ So we can see this type of alert of drop action, occurs when the Fortigate firew
 
 From here we have enough information to answer our first question.
 
-## Question 1
+## Question 1 (Will have to replace pictures due to following tutorial while making walkthrough)
 
-<img width="880" height="685" alt="image" src="https://github.com/user-attachments/assets/8cb7a10b-f7d4-4e11-858a-86a03168f769" />
+<img width="883" height="700" alt="image" src="https://github.com/user-attachments/assets/b6f99b4a-e6e3-4f45-a68f-690599b10b92" />
+
+### We also want to make note of the 192.168.250.70 IP as this is our web server imreallynotbatman.com
+<img width="1155" height="785" alt="image" src="https://github.com/user-attachments/assets/7b2b9be1-6d23-4b62-b835-58cb08198ec4" />
+
+Also worth noting that the 192.168.250.1 is the host that is sending the logs and also possibly the default gateway.
+
+### How do we know it's our web server?
+
+## How else could we have solved this?
+
+### Using HTTP Stream Data
+
+```
+index=botsv1 sourcetype="stream:http"
+```
+When changed to a different sourcetype, the fields disappeared.
+
+We had to select the source IP field again but when we look at the top talkers, we see the 40.80.148.42 IP with a 54% and count of 20,000.
+
+If we didn't know this IP was already suspicious, that would be a clue. 
+
+### In the demonstration, the instructor already includes the website IP of imreallynotbatman.com 192.168.250.70 in the search query.
+
+<img width="1285" height="476" alt="image" src="https://github.com/user-attachments/assets/985b8f64-b63c-4fd8-89e0-68576ea36b89" />
+
+<img width="1433" height="1190" alt="image" src="https://github.com/user-attachments/assets/6be09958-b4d1-4628-beb6-2a69e75bd7f2" />
+
+So we don't know what fields we have available to us with this sourcetype but we do know we're looking for packets coming to this IP.
+
+<img width="1425" height="1177" alt="image" src="https://github.com/user-attachments/assets/64cfc71b-4eb3-4fde-8a9c-f4bc91cddaf7" />
+
+We see we're getting a lot of HTML markup, a lot of information but normally we wouldn't be able to see this traffic as it would be encrypted.
+
+In the demo, the instructor pretty much used the source IP field to find the top talker. 
+
+He also used the 'top' command, limited to the top 5 IPs. 
+
+<img width="1425" height="581" alt="image" src="https://github.com/user-attachments/assets/23020386-b6e2-4667-8408-61071940cc86" />
+
+<img width="1420" height="1186" alt="image" src="https://github.com/user-attachments/assets/b113c3a2-91fa-4b2f-bdd4-26d74348523a" />
+
+So now our Splunk search is changed to indicate the source IP field that's equal to 40.80.148.42
+
+If we look at the interesting fields, we can see the http_user_agent field
+
+### Important to note that not all events will contain the same fields
+
+### User-Agent - identities the software making the HTTP request
+User-Agent = client-controlled string claiming what software is making the request.
+
+<img width="902" height="264" alt="image" src="https://github.com/user-attachments/assets/4e6f9b90-a29a-45ff-8632-f85b84ffb921" />
+
+### Can be spoofed
+
+<img width="597" height="571" alt="image" src="https://github.com/user-attachments/assets/6e21c658-8d9d-4d55-9f7e-967c9cc005e8" />
+
+<img width="873" height="972" alt="image" src="https://github.com/user-attachments/assets/d768ca72-4719-46c4-82c5-7c384cae3eb5" />
+
+### Interesting to note that we wouldn't have seen HTTP information looking at the other Fortigate sourcetypes. 
+
+<img width="876" height="193" alt="image" src="https://github.com/user-attachments/assets/60f84d1c-8173-4eb7-a421-52a7a6258bb8" />
+
+<img width="985" height="1061" alt="image" src="https://github.com/user-attachments/assets/0827d834-c721-463d-9199-712415bac5b8" />
+
+From here we can surmise that some of the anomalous user agent strings are the vulnerability scanner probing the website to see if there are any injection vulnerabilities by using injection strings within user agents.
+
+If we scroll down and look at the uri_path, we see some references to Joomla
+
+<img width="918" height="580" alt="image" src="https://github.com/user-attachments/assets/df2d3f4f-cab0-406e-bdcd-d08ed1da3a94" />
+
+Joomla - Content Management System that the web server is likely running.
+
+We can also see what appears to be a directory traversal attempt or Local File Inclusion attempt to probe for vulnerability
+
+<img width="607" height="1161" alt="image" src="https://github.com/user-attachments/assets/5c8be6ee-d068-4f3b-8055-e021e180f644" />
+
+<img width="905" height="591" alt="image" src="https://github.com/user-attachments/assets/7efd9cb4-f359-44e8-9b2f-80297b0b5a72" />
+
+### Another example of cookies
+<img width="595" height="924" alt="image" src="https://github.com/user-attachments/assets/58eeb169-bb1a-4336-8867-268db76050ca" />
+
+<img width="1032" height="1137" alt="image" src="https://github.com/user-attachments/assets/489f8367-0001-49bf-a413-dfe4904a9163" />
+
+### To filter we had to include the cookie field in our query
+
+<img width="1433" height="822" alt="image" src="https://github.com/user-attachments/assets/2061607f-7222-40f9-a48c-67e596154a43" />
+
+### Again, this is only to show the correlation or multiple Indicators of Attack.
+
+### Suricata Sourcetype
+
+
+
+
+
+
+
+
+
 
 
 
