@@ -114,44 +114,88 @@ This Scenario is specifically about the suspected compromise of imreallynotbatma
 
 <img width="897" height="75" alt="image" src="https://github.com/user-attachments/assets/b2d14762-f037-4cf8-aac9-90d46d89fe01" />
 
+<img width="845" height="77" alt="image" src="https://github.com/user-attachments/assets/3da309b0-3dea-40a6-be47-5bc95bf409e0" />
+
+### Results 
+
+<img width="1429" height="1197" alt="image" src="https://github.com/user-attachments/assets/99cc4709-a01b-43b9-bca1-08c004db5218" />
+
+Now we can click on an event and see what fields we have.
+
+Since these are firewall logs, we have fields like 'Action' that show if the traffic was allowed or denied.
+
+We can also see things like the URL which shows what the actual URL is on the page that's being access through the firewall.
+
+So there's a few things we can do here. 
+
+-Look at top values for Source IP address.
+
+<img width="1149" height="869" alt="image" src="https://github.com/user-attachments/assets/c45869a1-3ac4-4030-ab13-52c0c82bb353" />
+
+With this we see we only have 2 IP address to look through.
+
+Interesting but not explicitly definitive on its own but can warrant further investigation.
+
+We also see from the percentages that 40.80.148.42 is comprising over 90% of the traffic. 
+
+With the high amount of traffic from a single IP, we could hypothesize that the attacker could have ran a vulnerability scanner.
+
+<img width="940" height="455" alt="image" src="https://github.com/user-attachments/assets/e3d5451a-4b06-42cd-93bc-2f6511627fa6" />
 
 
 
+Since this is a firewall, let's look at the available actions within our results.
 
+<img width="1432" height="664" alt="image" src="https://github.com/user-attachments/assets/48af214b-caef-4528-84eb-61fad4edeb68" />
 
+We see Allowed, Blocked, and Deferred
 
+Since we hypothesized that the attacker might have ran some kind of vulnerability scanner, it's a safe bet that some of those packets may have been blocked.
 
+Let's add the "blocked" field to our search.
 
+<img width="1429" height="1219" alt="image" src="https://github.com/user-attachments/assets/6de1e371-3144-4d0a-88a6-7d0c360c1de0" />
 
+### Results
 
+<img width="1425" height="1188" alt="image" src="https://github.com/user-attachments/assets/5ca7f1c2-8fff-4286-bf9f-07d28866e9dd" />
 
+This cut our results down to 4,000 events and when we look in the Source IP field, we only see one result. Again the 40.80.148.42
 
+<img width="1417" height="666" alt="image" src="https://github.com/user-attachments/assets/d9789a32-e2e3-40a1-a35c-c234c05f3f82" />
 
+It seems to be the only IP address getting blocked. Adding suspicion and adding to our hypothesis and adding to our judgement calls.
 
+So while we have 4000 events, let's open up an event and see what we have available to us. 
 
+<img width="1438" height="1184" alt="image" src="https://github.com/user-attachments/assets/4d5a9206-0150-4894-838a-f9768a685668" />
 
+In the attack field, we can see that the action was blocked because it identified a web vulnerability scan from Acunetix software.
 
+Acunetix is a vulnerability scanner similar to Nessus. Can be used to probe an endpoint and find out any vulnerabilities or flaws that can lead to exploits.
 
+Often used for vulnerability management in Governance, Risk Management and Compliance (GRC).
+Folks that regularly scan an organization's resource, making sure they're all patched an no major vulnerabilities out in production.
 
+So there's a possibility that this could have been done legitimately and the vulnerability management team didn't tell the sysadmin or SOC to allow that Acunetix traffic through so we see a bunch of denied traffic.
 
+But it seems fair to say this could be attacker scanning the website.
 
+Under the attack ID field, we can Google the number. 
 
+<img width="1430" height="1146" alt="image" src="https://github.com/user-attachments/assets/54592e65-6e3a-4e8a-85fb-35b0efb6249a" />
 
+<img width="1412" height="1179" alt="image" src="https://github.com/user-attachments/assets/a98b081d-93d8-4828-94d0-765d014d0215" />
 
+<img width="1438" height="1254" alt="image" src="https://github.com/user-attachments/assets/a8a6d4f4-d430-4e82-8ac1-356034daccc8" />
 
+So we can see this type of alert of drop action, occurs when the Fortigate firewall detects an attempted scan from the Acunetix vulnerability scanner.
 
+From here we have enough information to answer our first question.
 
+## Question 1
 
-
-
-
-
-
-
-
-
-
-
+<img width="880" height="685" alt="image" src="https://github.com/user-attachments/assets/8cb7a10b-f7d4-4e11-858a-86a03168f769" />
 
 
 
