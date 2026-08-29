@@ -287,16 +287,34 @@ We can also see what appears to be a directory traversal attempt or Local File I
 
 ### Suricata Sourcetype
 
+<img width="730" height="432" alt="image" src="https://github.com/user-attachments/assets/ccc42cb5-20d5-4354-b564-20db6156817a" />
+
+### Looking at the video, I saw he had fields for alert.signature and we didn't.
 
 
+<img width="1349" height="813" alt="image" src="https://github.com/user-attachments/assets/63b41327-de6f-4655-8ab0-aa36208a9337" />
+
+<img width="1441" height="2277" alt="image" src="https://github.com/user-attachments/assets/17b7c134-664b-4180-90d1-a81962538451" />
+
+### Once we clicked on more fields we were able to see the other fields we wanted to check
+
+<img width="1422" height="1609" alt="image" src="https://github.com/user-attachments/assets/7b35ebd1-3e91-4c8e-a4a2-6dcf19ec68fa" />
+
+Mainly alert.* at the moment
+
+<img width="1355" height="1065" alt="image" src="https://github.com/user-attachments/assets/17d0fead-9e2b-4bb0-a34a-bb529dcdf8dc" />
 
 
+Now we can see the alert.signature field
 
+<img width="1437" height="811" alt="image" src="https://github.com/user-attachments/assets/22ac8f58-4c90-4315-b3c3-a66316722bc9" />
 
+Here we can see alerts related to cross-site scripting, or SQL injections and even reference to different CVE numbers.
+<img width="1435" height="980" alt="image" src="https://github.com/user-attachments/assets/9f0f1427-fa08-45bb-b41d-ed801821ab89" />
 
+## We also have a src_ip field. Let's try to correlate the count of suricata alerts and TOP Source Ips
 
-
-
+### Left off at timestamp 21:11
 
 
 
