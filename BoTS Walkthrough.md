@@ -95,18 +95,24 @@ Every analyst can approach something differently and still achieve the same resu
 First we need to search for the appropriate time-range. 
 
 From the incident briefing document, we see the incident took place in August of 2016. 
+<img width="1434" height="1191" alt="image" src="https://github.com/user-attachments/assets/4009b400-0dad-4483-bb14-85193d31b499" />
 
-<img width="1433" height="1163" alt="image" src="https://github.com/user-attachments/assets/1da1c69a-749c-4b36-aab1-5937469f6305" />
+So let's start out with the Fortigate or Firewall logs.
+We'll look in the botsv1 index for these logs
 
+```
+index=botsv1 sourcetype=fgt_*
+```
 
+Utilizing the wildcard, we can match across all Fortigate ftm logs
 
+<img width="1434" height="1050" alt="image" src="https://github.com/user-attachments/assets/31eedab3-2aa3-4434-927d-bbc2f8dd87e5" />
 
+Since we're getting a lot of events back (3 million and counting) which includes all kinds of network activity, let's narrow the scope of what we're looking for. 
 
+This Scenario is specifically about the suspected compromise of imreallynotbatman.com, so let's include that.
 
-
-
-
-
+<img width="897" height="75" alt="image" src="https://github.com/user-attachments/assets/b2d14762-f037-4cf8-aac9-90d46d89fe01" />
 
 
 
