@@ -29,6 +29,8 @@ We can use the following event count and metadata commands to list out all of th
 eventcount command will count events per index.
 
 summarize set to false will ensure we don't miss any information
+<img width="873" height="200" alt="image" src="https://github.com/user-attachments/assets/453b47d0-5939-444e-80ae-53d45878e4e7" />
+
 
 Wildcard * will pull every index.
 
