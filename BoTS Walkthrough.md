@@ -312,9 +312,125 @@ Now we can see the alert.signature field
 Here we can see alerts related to cross-site scripting, or SQL injections and even reference to different CVE numbers.
 <img width="1435" height="980" alt="image" src="https://github.com/user-attachments/assets/9f0f1427-fa08-45bb-b41d-ed801821ab89" />
 
-## We also have a src_ip field. Let's try to correlate the count of suricata alerts and TOP Source Ips
+## We also have a src_ip field. Let's try to correlate and build a table of the count of suricata alerts and TOP Source Ips
 
-### Left off at timestamp 21:11
+<img width="1431" height="851" alt="image" src="https://github.com/user-attachments/assets/b2e51699-3e51-4a34-a0dd-f0e74e0166f4" />
+
+We got results now let's refine them.
+
+<img width="1431" height="715" alt="image" src="https://github.com/user-attachments/assets/7af1424d-b18d-4516-90d7-ae9d4bc971d6" />
+
+<img width="883" height="405" alt="image" src="https://github.com/user-attachments/assets/affcf1fa-bbb9-461a-9ba8-264fca156860" />
+
+Again we see the 40.80.148.42 IP address causing most of the alerts so it's safe to safe this is the attacker or scanner.
+
+## Question 102
+
+<img width="792" height="672" alt="image" src="https://github.com/user-attachments/assets/9077458b-0e6e-424b-99a1-8fe62ef14eea" />
+
+We saw earlier this was acunetix
+
+## Question 103
+
+<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/02ff3569-f566-4ccc-a739-e0273ef28455" />
+
+Oftentimes Content Management Systems like Joomla or Wordpress will have different signatures or fingerprints that define them based on URL structure. 
+There are other things as well such as host headers and cookies.
+
+<img width="1193" height="757" alt="image" src="https://github.com/user-attachments/assets/6f227e28-3239-433f-b940-3b32129b0be3" />
+
+<img width="888" height="323" alt="image" src="https://github.com/user-attachments/assets/ae348d88-926e-484e-a769-857afd2a52ac" />
+
+### Is Cloudflare a CMS?
+
+### What's the difference between a Content Management System and a Content Delivery Network?
+
+<img width="1402" height="1122" alt="image" src="https://github.com/user-attachments/assets/cbbed35d-79e0-4403-beef-eb821d0c31c5" />
+
+### So for the question
+
+We saw Joomla when we were looking at web or network related sourcetypes
+
+We can look at Fortigate logs and specify our website imreallynotbatman.com
+<img width="1425" height="659" alt="image" src="https://github.com/user-attachments/assets/65e2bc62-e218-443c-bb9e-142dffe30b98" />
+
+From here we can look at our url or path field.
+
+<img width="1417" height="643" alt="image" src="https://github.com/user-attachments/assets/5ba8a24f-2507-4f6f-976c-fd0fd70cff33" />
+
+Here we see a lot of references to Joomla which is probably the base or root index that's hosting whatever Joomla website or blog this i
+
+### Joomla in the url
+
+<img width="873" height="666" alt="image" src="https://github.com/user-attachments/assets/ae355c4f-8928-494b-951a-f4ac92bd1b50" />
+
+<img width="926" height="992" alt="image" src="https://github.com/user-attachments/assets/a8b22565-2be7-4e7d-a0c4-ff0443493848" />
+
+
+### We can also find this out by using http streams or logs.
+
+<img width="1421" height="661" alt="image" src="https://github.com/user-attachments/assets/497b460a-e5bb-4e11-8e4c-bba8f27bff2e" />
+
+<img width="943" height="514" alt="image" src="https://github.com/user-attachments/assets/d7d000b3-d654-4177-bd86-4298279a6c53" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
