@@ -79,9 +79,9 @@ When we think about the stages of an attack, they often need to start with recon
 applications, employees or users that can be enumerated, cross-referencing that with any vulnerabilities that can be used against the systems.
 
 So when we're thinking of identifying things like reconnaissance against a web-server, we want to think about what source-types we have available to us.
-And what types of those would contain relevant data, an indicators like a scan.
+Also what types of those would contain relevant data, and indicators like a scan.
 
-So if they're scanning a website that means their sending in inbound packets towards a web-server, meaning it's going to be a network-based event.
+So if they're scanning a website that means they're sending in inbound packets towards a web-server, meaning it's going to be a network-based event.
 So if we have some sort of firewall in place in front of a web server, or an IDS or IPS sitting in between or on endpoint,
 Well these are appliances that may be able to detect and block the activity. 
 
