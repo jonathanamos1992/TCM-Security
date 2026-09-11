@@ -160,24 +160,109 @@ with IP addresses or file hases associated with recently discovered malware comp
 Makes the more much more prepared to detect and handle if targeted.
 
 
+## Intelligence Lifecycle
 
+Intelligence isn't a binary thing,
 
+we have to plan out our data collection.
+Then we have to process, analyze and turn it into meaninigful insights.
 
+Then share out to right individuals and sort of create that feedback loop to continually improve our process.
 
+To cover each one in detail:
 
+When starting with Threat Intelligence Cycle, we want to start with the most important stage which is the Planning (Requirements and Direction).
 
+## Planning
 
+We need to focus on what we want to actually collect and how we can best do that, and we need to set our goals and objectives and key intelligence questions
+for our intelligence gathering strategy.
 
+What do we care about? What do we want to spend money and resources on?
 
+ex. A financial institution might want to gather intelligence on threat campaigns targeting customers or employees of financial institutions, or threats that are targeting banking systems.
 
+ex. A manufacturing company could be concerned with collecting intelligence that could pose a threat to their specialized industrial control system equipment.
 
+Goal is to understand relevant methods, like the malware or the actors, what APT's or threat groups and Indicators of Compromise that are associated with these campaigns that could affect the security of our systems.
 
+We also want to think about the supply chain as well, what threats could affect our vendors or anyone up the chain and how this affects the type of intelligence we want to collect.
 
+## Collection
 
+Involves actually gathering relevant data and information from various sources to address intelligence requirements and goals.
 
+We talked about all of the internal data and events we can capture like packet captures, or endpoint logs or EDR or SIEM agents.
 
+Here we're focusing on external data as well.
 
+Wide range of sources (paid and proprietary. )
 
+Different Types of Sources of Intelligence:
+
+Internal Threat Intellgence - Data generated from within an organization from it's own systems and operations. Looking at logs from firewalls or IDS or IPS systems or EDR, anti-virus software, as well as incident reports and lessons learns and post-mortems form past incidents.
+
+Primary benefit of internal threat intelligence: 
+
+1. Readily and continously available, don't have to subscribe or pay for it. 
+Kind of an indirect benefit of having this ability over our enviornment.
+
+2. Tailored to our specific envirornment. Type of data ingested is highly relevant.
+
+On the external side:
+
+We have number of different sources of threat intelligence data as well.
+
+First off, open source intelligence or OSINT
+
+OSINT- gathering information from publicly available sources: websites, social media, different forums or published research.
+
+since the information is publically available. OSINT can be a cost-effective way to enhance our threat intelligence.
+
+We ARE going to get a vast amount of data.
+
+NEED to distinguish whatis both ACCURATE and USEFUL.
+
+ex. Monitoring things like the dark web, or different forums or social media. Chatrooms like Telegram channels where cybercriminlas exchange information and or sell exploits plan things like data leaks or plan different attacks, or look at public databases of information relevant to vulnerabilities or malware or information on systems in general.
+
+ex. Common Vulnerabilities and Exposure CVE Database, MalwareBazaar, Virustotal, Cisco Talos, Anyruns.
+
+In regards to open source threat feeds we have things like US CERT - United States Computer Emergency Readiness Team which provides cybersecurity alerts and advisories and different reports on threats affecting the US.
+
+In the UK, there's the National Cybersecurity Center, NSC.
+
+We also have things like the Open Threat Exchange, now owned by AT&T.
+
+And we'll also look at MISP or Malware Information Sharing Platform.
+
+All these can provide insight into emerging threats, or track threat actors and significantly support operational intelligence.
+
+### Commerical Threat Intelligence
+
+Provided by 3rd party vendors who specialize in services usually related to threat intelligence, or network or endpoint detection platforms.
+
+These vendors analyze and collect data from various sources. Like they're own research and honeypots or honeynets or their own solutions, like own data collected from customer systems.
+
+Can provide clients with collected and closed source data collected, closed source data in the form of actionable intelligence. 
+
+ex. Mandiant with their cyber threat intelligence platform or RecordedFuture.
+
+Reason why commercial intelligence can be useful is because it can be tailored to meet specific needs or an organizations and and gives us insights that might not be available through internal or open sources.
+
+Organizations may subscribe to various threat intelligence feeds that can provide real in-time information on known threats and IOCs or different malware signatures and attack patterns that are ready to be ingested into different security tools and detection mechanisms.
+
+Downside is that these services can be costly. Organizations need to evaluate the value and how they're going to use it to justify the costs.
+
+As another intelligence source, we can look at reports and white papers published by cybersecurity vendors and researchers and these can provide analysis of recent threats or attack vectors or tactics and techniques of threat actors. 
+
+Lastly, concept of collaborative intelligence collection and dissemination
+
+Information Sharing and Analysis Centers (ISACs) - nonprofit entities where organization within the same industry share threat intellgience and best practices to each of its members. Membership driven. Membership with an ISAC requires organizations commitment to active participation and sharing. Since this is a collaborative process. Quality of intelligence depends on contribution of its members. 
+
+There are recognized ISACs for a number of different industries.
+Several ISACs or critical infrastructure ex. metals and mining, finance, automotive, aviation, electricity, healthcare, real estate, public transportation, etc.
+
+### 
 
 
 
