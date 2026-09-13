@@ -500,13 +500,28 @@ Also theories around Germany as well as that's where Siemens was headquarted.
 
 Also some files in Stuxnet as well that hinted to Israel's involvement. 
 
+While there are competing theories, using the diamond model helped pinpoint who has this capability and who would be able to deploy it with this infrastructure, and who would have the motivation.
 
+These are the ways in which we can start to formulate different hypotheses on how we can develop our adversary. 
+Not always a quick process, can take months or years to pinpoint. 
 
+Turned out to be US and Israel in a polital effort to deter Iran's nuclear program.
 
+Now we can start moving through the different actions and interconnections within the Diamond Model and see how everything works. 
 
+<img width="1327" height="712" alt="image" src="https://github.com/user-attachments/assets/b32d6ea4-c1ee-4b11-860a-7a2daa1a7999" />
 
+Adversary (US and Israel) developed advanced technical capabilities in that they created a worm that exploited zero day vulnerabilities and used stolen certificates and had complex payloads specific to industrial control systems equipment.
 
+When we think about the link between Adversary and infrastructure, the capabilities the adversary developed were deployed through physical air-gapped facility with infected USB drives, ensuring worm could propagate and remain undetected.
 
+When we think about infrastructure and victim. Worms deployment through USB drives and network shares allowed it to penetrate and spread within the facility's network and reaching the PLCs and executing its sabotage. 
+
+When we thinking about capability exploiting the victim, the zero day and sophisticated malware that was deployed was used to exploit the centrifuges and render them inoperable. 
+
+Learning about frameworks and models, we are able to have a more structured approached to highlighting the relationships between adversary and capabilities, infrastructure and victim, we can better understand complex threat actors and their capabilities, which ultimately leads to attribution and also helps us predict and prevent future incidents.
+
+Using Honeynets and Diamond Model for ICS Threat Analysis[https://infocon.org/mirrors/vx%20underground%20-%202025%20June/APTs/2016/2016.05.09%20-%20Using%20Honeynets%20and%20the%20Diamond%20Model%20for%20ICS%20Threat%20Analysis/Paper/Using%20honeypots%20%26%20diamond%20model%20for%20ics%20threat%20analysis.pdf]
 
 
 
