@@ -521,7 +521,7 @@ When we thinking about capability exploiting the victim, the zero day and sophis
 
 Learning about frameworks and models, we are able to have a more structured approached to highlighting the relationships between adversary and capabilities, infrastructure and victim, we can better understand complex threat actors and their capabilities, which ultimately leads to attribution and also helps us predict and prevent future incidents.
 
-Using Honeynets and Diamond Model for ICS Threat Analysis[https://infocon.org/mirrors/vx%20underground%20-%202025%20June/APTs/2016/2016.05.09%20-%20Using%20Honeynets%20and%20the%20Diamond%20Model%20for%20ICS%20Threat%20Analysis/Paper/Using%20honeypots%20%26%20diamond%20model%20for%20ics%20threat%20analysis.pdf]
+[Using Honeynets and Diamond Model for ICS Threat Analysis]https://infocon.org/mirrors/vx%20underground%20-%202025%20June/APTs/2016/2016.05.09%20-%20Using%20Honeynets%20and%20the%20Diamond%20Model%20for%20ICS%20Threat%20Analysis/Paper/Using%20honeypots%20%26%20diamond%20model%20for%20ics%20threat%20analysis.pdf
 
 
 
