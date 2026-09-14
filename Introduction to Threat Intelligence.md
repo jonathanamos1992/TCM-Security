@@ -768,6 +768,148 @@ Aslo helps address some of the drawbacks of the Cyber Kill Chain suhch as being 
 
 (Unified Kill Chain)[https://www.unifiedkillchain.com/assets/The-Unified-Kill-Chain.pdf]
 
+### Pyramid of Pain
+
+Drives home the concept of what Indicators of Compromise or IOC's really are.
+
+As we've been working our way down to mapping out threat actors and ultimately their motivations and ultimately the chain of their attacks, well the pyramid of pain allows us to look into the actual internals of some of those middle stages in the kill chain, the actual malware, the exploits, the payloads, and the different methods of how they can be detected.
+
+Conceptual model that illustrates the various impact of several of these indicators of compromise and measures the impact on advesaries when used for detection and response.
+
+Emphasizes the idea that not all of these indicators are equal in their ability to disrupt an adversary's operation AKA cause them pain!
+
+Not just an entire conceptual framework but can actively apply the concepts of the Pyramid of Pain in a more tangible way within our SOC.
+(i.e. writing out detection rules)
+
+Pyramid of Pain was developed by David Bianco as part of a discussion around detection strategies in his organization and the problem he had around trying to convey and describe and get across the idea that simply ingesting more and more threat intelligence is not the magical answer.
+
+In an effort to argue how to best prioritize Cyber Intelligence data and get more value out of it, he developed this model to show how not all IOCs are created equal.
+
+The pyramid consists of 6 different levels with each representing a different type of indicator or IOC, with the difficulty of the adversary changing their tactics increasing as we move up the pyramid.
+
+We can correlate this to the Lockhart's Exchange Principle, which states that any contact leaves behind a trace, meaning that when two objects come into contact with one another, there is always an exchange of materials between them.
+
+Within forensic science, it's the idea that the perpetrator of a crime will always bring something to the crime scene and leave taking something from it.
+
+Both can be used for forensic evidence. This applies to computer crime or computer forensics as well.
+
+What this means is that if a threat actor is doing something on our network, then they're leaving behind some kind of trace and they can't avoid that.
+
+Our job is to find these traces and notice when those traces are being left within our network and response accordingly.
+Or do somthing with them and respond accordingly or do something with them and disrupt whatever the attacker is doing in their kill chain.
+
+and if we can find that indicator, then the attacker loses that method, or tool, or tactic or technique, and they then have to replace it. 
+The difficulty of replacing that indicator or whatever created the indicator and the general pain it would cause the attacker would to to go through to replace it is what the Pyramid maps out.
+
+### Different Levels
+
+### Hash Values
+
+Referring to static hash values so things like SHA-1 OR MD5 OR SHA-256 rather than any fuzzy hashes like SSDeep or other context-triggered hashes.
+
+Unlike traditional hash functions like MD5 or SHA1 which generate a fixed size hash value regardless of the input size, we also have hashing algorithms and utilities like SSDeep that can produce a hash that's designed to be similar when the inputs are similar, even if there are small difference between the two files.
+
+All of that is to say that we're focusing on the traditional cryptographic hashes like SHA-1 OR MD5 OR SHA-256.
+
+When we collect a piece of malware say from a phishing email or extracted from a packet capture or an endpoint, we often have the means to obtain a file's hash, either manually or automatically and we can then go about creating detection rules to block that piece of malware if we were to come across it later on in the field.
+
+However, the reason why hashes were at the bottom of the pyramid or classified as trivial is due to the very nature of how these hashes are built.
+So we can have two identical files which will have the same file hash but if we were to change just a single bit, we would have wildly different hash values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
