@@ -523,30 +523,181 @@ Learning about frameworks and models, we are able to have a more structured appr
 
 [Using Honeynets and Diamond Model for ICS Threat Analysis](https://infocon.org/mirrors/vx%20underground%20-%202025%20June/APTs/2016/2016.05.09%20-%20Using%20Honeynets%20and%20the%20Diamond%20Model%20for%20ICS%20Threat%20Analysis/Paper/Using%20honeypots%20%26%20diamond%20model%20for%20ics%20threat%20analysis.pdf)
 
+#### Now we can move onto discussing the different stages of a cyber attack
+
+## Cyber Kill Chain
+
+The most well known model in this domain is the Cyber Kill Chain developed by Lockheed Martin,
 
 
+*Picture of Cyber Kill Chain* 
 
+Based off the military concept, parallels to be made in attacking and defending both physically and kinetically in a cyber landscape.
 
+Cyber Kill Chain is a conceptual framework that is used to break down the different stages of an attack. 
 
+Serves as a guide for organizations to understand, detect and defend what adversaries are doing by detailing the phase of a typical attack.
 
+By understanding each phase of an attack through the lens of the cyber kill chain, it can help us an analysts and organizations to develop more comprehensive security strategies. 
 
+This brings us to the concept of Defense in Depth
 
+We can develop our security strategy to intercept an attack at multiple points. 
 
+Some may argue that the Cyber Kill Chain is too rigid or doesn't account for certain types of attacks.
+(i.e. some attacks don't follow the chain to the T.)
+Maybe, but we can also apply some common sense as well.
 
+Learning a framework like the Cyber Kill Chain allows us to systematically understand the potential phases of an attack, even if what we see in the wild doesn't match precisely.
 
+# 7 Stages of the Cyber Kill Chain
 
+### Reconnaissance
 
+During this phase an attacker is going to gather information about their target and the information that they gather during this phase will help them plan out the proceding phases of an attack.
 
+Long phase and sometimes the longest phase of an attack and sometimes the longest phase in the kill chain.
 
+We can compare this to a military operation with the longest part of planning any type of attack is going to require a lot of extensive research of a target.
 
+i.e. 
+Where's the best place to land or attack from?
+What's the best time to attack?
+What do the enemy's defenses look like?
+Are we going in loud or tactical?
 
+The same concept can be said about a hack or cyberattack.
 
+A threat actor needs to understand the lay of the land and research the target accordingly.
 
+This might include reasearching publicly available data or performing OSINT. 
+An attacker could be collecting as much passive information as they can.
 
+Whereas they don't actually perform any active scanning or probes, just seeing what information can be gathered from a typical non-assuming perspective.
 
+On the OSINT side, this could be personal identifiers about employees, email addresses, or full names, phone numbers or even more contextual information such as interests or favorite teams. 
 
+These can all be used to create word lists to be able to brute force credentials later on.
 
+Sometimes it doesn't even need to be done.
+If an attacker can get thier hands on previous data or credential breach, they might be able to figure out a users credentials this way, without ever having to interact with them if the user is using their password anywhere else.
 
+This can also include active techniques as well, such as scanning the target's actual systems or networks or using social engineering techniques to identify potential vulnerabilities or attack methods.
+
+Maybe an attacker is running NMAP on a target's web servers to see what services or languages or stack that its running.
+
+Or looking for Whois or Shodan to map out an ip space to see what ports and services are open.
+
+Maybe they're running vulnerabilities scans or enumerating web pafes or directories or sub-domains.
+
+Reconnaisance phishing emails can be used by an attacker to verify if a user's mailbox exists or suspectible to opening an external email, or if they can get a response.
+
+We also talked about tracking pixels which can help an attacker fingerprint an organizations email server or profile their target at the endpoint level as well.
+
+And enumerating things like the email client software or the operating system version or web browser.
+
+At a physical level, maybe an attacker is tailgating an employee to map out security camera locations or alarms.
+
+Maybe their talking to employees in the lobby or outback, trying to secretly get information to stage a future attack.
+
+Or maybe looking through disposed material known as dumpster diving, to see if any sensitive data has been thrown out unknowingly.
+
+Information will help an attacker tailor their approach and their future weaponization and delivery methods to maximize their chances of success later on.
+
+This all leads us into the next phase, weaponization
+
+### Weaponization
+
+Where an attacker actually goes about developing their malware or malicious payloads designed to exploit any identified vulnerabilities or attack vectors discovered during their reconnaissance. 
+
+Often this stage is going to involve an attacker combining their malware or exploit into a deliverable payload, such as a phishing email attachment or a malicious website, or even other client-side attacks like a benign looking Word or Excel file that actually has embedded malware scripts inside.
+
+We looked at examples of these types of attacks as well.
+
+Weaponization phase can also be things like standard service exploit like some of the web-based attacks that can lead to things like remote code execution, or things like a buffer overflow against a network service.
+
+Often this isn't as simple as pulling an exploit off of ExploitDB or Github.
+
+Often if an attacker goes the route, the exploit needs to be heavily modified or they'll create their own entirely.
+
+Or pay money for an exploit that will suit their needs. 
+
+Or it may involve chaining multiple Zero Days together.
+
+When talking about the market of Zero Days, could be multiple millions of dollars for an exploit.
+Highly funded groups will pay for it.
+
+That's because developing a reliable payload that can get around things like patches or detections and different security controls or antivirus can be quite an involved and expensive process.
+
+Once the exploits and payloads have been acquired or developed, the next stage in the Kill Chain is the Delivery phase.
+
+### Delivery
+
+Actual way for the weaponized payload to actually transfer and make it to the target, whether it be a server-side attack against a network server or a client-side attack against a user.
+
+This is where all of the information gathered during the recon phase come into play, the more information an attacker has about its target and system, the more avenues for delivery they will have.
+
+Could be as simple as having more email addresses they can phish, or more enumerated services they can connect to. 
+Most common methods of delivery will be things like phishing emails with malicious attachments, or links or URLS, or malicious USBs that get dropped around, or drive-by downloads on the compromised websites, or direct exploitation of any web or network vulnerabilties.
+
+We can see how client-side attacks are more popular because getting a phishing email onto an end-users endbox is a lot easier to do at scale. Also easier to evade traditional permieter controls if an email is coming through a 3rd party email service.
+
+So return on investment for an attacker is much higher.
+Still plenty ways to defend agaisnt phishing and social engineering attacks.
+
+Typically easier to exploit humans than it is to exploit a server or technology.
+
+Another significant method of delivery is through supply chain attacks.
+
+Where adversaries compromise a third party vendor or supplier that provides software or services to the target organization.
+
+By inserting their malware into legitimate software upstream, an attacker may be able to infiltrate indirectly.
+
+All the previous steps lead up to the next stage, Exploitation.
+
+### Exploitation
+
+All the legwork put in to make the attack comes together.
+
+Where the already delivered malicious payload is executed on the target system, or interacted with on the endpoint.
+Involves the entire exploit chain as well.
+
+If the attack involves chaining multiple exploits together, for example, exploiting a LFI vulnerabiltiy on a server to include a log file, and then poisoing that log file with a malicious user agent that executes php code, essentially giving the attacker remote code execution.
+
+Then using that web shell to execute a reverse shell back to the attacker.
+
+Many different examples here because this stage can involve many things like running or executing malicious code, or VBA scripts within a document or running a malware executable or exploiting a software vulnerability or buffer overflow executing to gain remote code execution on a server, or just by using stolen credentials from a phish to gain access to an account or system.
+
+Exploitation phase basically marks point where attacker gains control over a system or gets that initial foothold.
+
+### Installation
+
+Back when we were looking at endpoint section, we were looking at alot of different mechanisms that were installed on endpoints.
+These were persistence mechanisms, which are a big part of the Installation phase.
+
+Once an attacker exploits a target and gains that initial shell or intial access, they typically want to upgrade their newfound access into something more stable and more reliable as they plan to do what they need to do on the system or keep their long term access.
+
+During this phase the attacker may install additional malware like a backdoor or a rootkit on the target or victim system, to maintain persistent access.
+
+This can be things like auto-start implants that we were looking at earlier, so those run entries in the registry that can point to malware. We can see installed services or scheduled tasks.
+
+Often we'll see things here like DLL injections where an attacker injects a malicious dynamic link library into a running process or things like memory injection which can execute malware within the memory space of a legitimate process, without writing any code or files to disk.
+
+Anytime we start venturing into fileless or memory-based malware, this makes detection a lot more difficult for traditional security solutions which typically monitor for files on disk.
+
+Ultimate goal of installation here is to ensure that the attacker can return to the compromised system, even if the initial access or vulnerability is patched or the system is rebooted. 
+
+So we're almost at the end of the chain here and we can think about how the attacker did their recon.
+
+They did all their reconnaissance and learned about the target
+Wrote or acquired their malware,
+Delivered it to the target
+Exploited it
+Made sure they have stable long-term access or persistence on the system.
+
+What next?
+
+Typically establish what is known as command and control or C2.
 
 
 
