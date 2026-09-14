@@ -699,7 +699,74 @@ What next?
 
 Typically establish what is known as command and control or C2.
 
+Communication channel between the compromised system and the attackers infrastructure.
 
+Setting up this channel allows the attacker to send commands and recieve data and in general just control the infected system remotely, without having to re-exploit the system every time.
+
+When we're thinking about detections at this stage, alot of this is going to be network-based. 
+
+Command and control servers are often established using known and trusted protocols like HTTP or HTTPS or DNS with DNS Tunneling.
+
+While we've demonstrated malware in the past that has easy to identify ports like 4444, that was only to understand the principles. 
+
+Real attackers won't be obvious.
+
+At a high level we can think about abnormal traffic patterns.
+Looking at things like session length and identify any super long or persistent connections that deviate from the norm.
+
+We can look at communication patterns at attackers C2 channel that sends a keep-alive or beacon at known frequencies.
+
+(i.e. Attackers C2 channel sends a keep alive or a beacon sending 100 bytes every 30 minutes until the attacker gives an order to run a command on the system.
+
+A good attacker that cares about their opsec will implement things like "jitter" to any of their keep alives or beacons so its not exactly the same size everytime.
+
+We can do things like statistical analysis that will average out the sizes and when we put it on a graph, it will look pretty consistent.
+
+When we look at the amount of packets transferred over, in cases of exfiltration or look at things like a high number of dns queries to the same domains.
+
+Maybe some sort of dns tunneling or dns exfiltration.
+
+Ultimately the goal of C2 or Command and Control is so the attacker can orchestrate their actions and potentially move laterally within the network as well.
+
+This brings us to the most important stage of the Cyber Kill Chain - reason why attacker did all the work.
+
+Where all the previous steps converge and where attacker can go about main objectives or ultimate goal for the target.
+
+### Actions on Objectives
+
+Can vary widely depending on the purpose of the attack or attacker, or victim.
+We can think about the actual motivations for the attack itself.
+
+Often see things like credentialharvesting - dumping credentials from the compromised system or finding them hardcoded somewhere on the device.
+Then using credentials to pivot around the network, spray them around or use them to stage future attacks and start the Kill Chain over again.
+
+Can also include things like Data Exfiltration (i.e. stealiong databases or customer information or financial details, intellectual property or stealing sensitive documents from emails, network shares or desktops.)
+
+If attacker is more malicious, can destroy data, or take down systems or servers or deface them in some way.
+
+If attacker is more financially motivated, ransomware.
+
+Actions on objectives can vary on the attackers motives.
+
+Financial gain
+espionage,
+hacktivism,
+disruption
+competitive advantage
+
+While its a rigid structure, the Cyber Kill Chain gives us a more holistic and comprehensive understanding of the lifecycle of a typical cyber attack.
+
+Reason why we do this as SOC analysts is because organizations can use this model to develop more targeted defenses in-depth, to address each stage of the kill chain and improve overall ability to detect and mitigate and respond where ever an attacker might be during their execution.
+
+(i.e. security measures like network monitoring or intrusion detection systems or endpoint protection or even just user education can all be aligned within the different stages of the cyber kill chain to create a more comprehensive defense in depth strategy.
+
+Further reading:
+
+Unified Kill Chain - Integrates and expands on elements from the Lockheed Martin Cyber Kill Chain and the MITRE ATT&CK Framework and other models to provide a more unified perspective on adversarial behavior.
+
+Aslo helps address some of the drawbacks of the Cyber Kill Chain suhch as being too rigid and doesn't always map to certain attacks. 
+
+(Unified Kill Chain)[https://www.unifiedkillchain.com/assets/The-Unified-Kill-Chain.pdf]
 
 
 
