@@ -867,10 +867,103 @@ However, to turn things back around on us, a determined attacker will likely hav
 
 And again, we can typically find domain-related IOC's when we're looking at packet captures, so looking at any DNS requests, or at the live endpoint level,or through dynamic sandboxes. Again looking at any DNS queries that were made and what domains were contacted or sometimes we can find this within the malware itself.
 
+If the attacker is using something like FastFlux or DynamicDNS then the domain has to be specified somewhere.
+Using Lockhart's Exchange Principle, if its there then we can find it.
+
+### Network/Host Artifacts
+
+Speaking of the Exchange Principle, this brings us to different indications on what hosts or network level artifacts are left behind from the attacker.
+Because as the attacker is doing things like exploiting their malware or dropping files on disks, or in the installation phase, carving out and installing persistence mechanisms and backdoors, there will inevitably be indicators in the form of artifacts or evidence on the host, like in the logs or autoruns locations or installed services and tasks. 
+
+Also on the network level as well. 
+Is there a registry key? We can think about the autostart locations that we talked about or the registry keys that get added when a service is installed.
+Is there a specific file that gets dropped on disk, under a certain directory. 
+
+Is there a certain way in which the command control channel is constructed.
+Or is there a specific, specified user agent?
+(i.e. we looked at user-agents in the wild like Southside or user-agents that contained slight misspellings.)
+
+Maybe since we can't just rely on domains for detections, maybe the attacker is constantly changing their domain names but the URL patterns they use to recieve C2 traffic has a specific pattern we can recognize or write some regular expressions around to detect.
+
+So we can do alot of the detections at this level using things like YARA and Sigma rules.
+
+These Network and Host artifacts hold a bit more value and occupy a hgher place on the pyramid because they're more complex and difficult, or annoying for the attacker to change compared to the lower level indicators.
+
+To get around these artifact level dections, the attacker will have to modify their tools, or modify code. 
+This can be really small changes but the pain here is that the attacker doesn't know exactly what is being detected and will have to do a bunch of testing and recompiling.
+
+Expanding on the hosts and network related indicators.
+
+### Tools
+
+Software and utilities the attackers use to execute their attacks.
+(i.e. exploits, payloads)
+
+Tools can range from custom bilt malware to pre-written exploits found online.
+
+If we can start detecting entire tools and the way these tools work, it becomes genuinely challenging for adversaries to change or get around detections.
+
+Can be a significant upfront cost to research, develop or purchase these tools.
+
+Maybe they're using a specific piece of malware, while they can get around some of the lower level indicators, the actual payloads and the way the malware operates become burned or detected.
+
+So the attacker really has no other option but to switch tooling.
+
+Or it could be exploitation frameworks like Metasploit or Cobalt Strike and if we can detect these then the attacker will have to switch.
+
+We usually get to this stage on the pyramid when all of our previous detection mechanisms have become so effective at identifying the artifacts of the tool itself in various ways. 
+ 
+Because of this, the adversary is forced to abandoned the tool, and either find or develop a new tool to achieve the same purpose.
+
+We can look at YARA or Sigma rules to develop these specific tool indicators or even things like fuzzy hashes, where we can perform more similarity analysis even if two binaries or files have minor differences.
+
+Once we're detecting tools, we're making it challenging for the attacker to get around.
+
+### TTPs
+
+Really determined, highly sophisticated and financially backed, we may have to summit the pyramid.
+
+Tactics, Techniques and Procedures
+
+Behavior. The way in which the adversary is trained. Their preferences and the way those all come together in the form of activities on the network and systems.
+No matter what tools they use or artifacts or IOCs like the domain names or IP addresses they use, it doesn't matter because now we're looking at the attacker through the lens of a very high level
+
+On the tactics side, the high level objectives or goals the adversaries aim to achieve.
+
+We can also think about Actions on Objectives as well. 
+(i.e. an adversary's tactic might be to establish persistent access to a compromised system or exfiltrate sensitive data.
 
 
+And the ways in which they go about exfiltrating data might be unique to their behavior.
 
+#### Techniques
 
+More detailed than tactics and describe how adversaries carry out their actual activities
+(i..e technique for persistence might be to create a new user account or installing a services.)
+(for exfiltration purposes, we could be looking at actual directories or filenames adversary uses - maybe they name their file Fubar.zip or they use a specific drive.)
+
+All these small things that paint a picture of who this threat actor is, or essentially profiling.
+
+Gold standard when it comes to looking at TTP's is MITRE ATT&CK Framework, specifically the Enterprise Matrix.
+
+Maps out all sorts of TTP's that real threat actors use
+(i.e.e reconnnaise, initial access, execution, persistence techniques, the ways in which attackers escalates privileges or moves laterally or sets up command and control.
+
+If we start detecting and then attacking back against an adversary's training or geenral behavior of what action's they like to perform when they get initial access, or the ways in which they go about reconnaise or delivery, that's really tough for an attacker to get around.
+
+It's behavior-based and things they do without even realizing it and like a habit, it's hard to change.
+
+At this point they basically have two options, either painstakingly figure out what behavioral indicators we're detecting and then try to consciously change thieir behavior and training or proccedures, and while they're doing that- reinvest in tooling and everything else 
+
+OR 
+
+Find another target.
+
+that's the point of the Pyramid of Pain, to chase them up the ladder or pyramid until it becomes too much of a pain and then they give up!
+
+The extent you have to go to chase an adversary up the pyramid entirely depends on things like their motivation, resources, financial backing or sophistication
+
+When we're talking about TTP's, we're thinking about Advanced Persistent Threats alot of the time and the data we have on their behavior.
 
 
 
