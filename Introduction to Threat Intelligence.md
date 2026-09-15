@@ -816,6 +816,66 @@ When we collect a piece of malware say from a phishing email or extracted from a
 However, the reason why hashes were at the bottom of the pyramid or classified as trivial is due to the very nature of how these hashes are built.
 So we can have two identical files which will have the same file hash but if we were to change just a single bit, we would have wildly different hash values.
 
+We can see how easy it is for an attacker to change the malware's hash value, and sometimes these hashes are so easily and susceptible to change, that they can even end up changing on their own, by accident. 
+
+Say for some sort of transmission error that changed one of the bits or metadata was appended to the file, or recompiling the same malware at a later date could also change the hash.
+
+So any detection rules around file hashes are not really causing that much pain to our adversaries.
+Attackers have advanced far past the static hash signature detections and so not really a high value indicator.
+
+### IP Addresses
+
+Next and slightly more painful of an indicator but still relatively easy indicator.
+We talked earler about why IP addresses are such fundamental indicators for malware, and somewhere we want to start when investigating endpoints, because you have to have some sort of network connection in order to carry out an attack or control and endpoint or exfiltrate data.
+
+With connections, we are talking about the network so that will always be an IP address of some sort.
+IP address indicators are just the address of the devices that carry out the attack
+(i.e. attackers infrastructure, or a server they're using to stage the attack like command and control server, or IP of other affected endpoints as part of a larger botnet)
+
+As analysts and responders, we might find IP addresses as Indicators of Compromise within packet captures or network protocol alerts or hardcocded into malware itself.
+
+We have to remember the reason IP addresses are so low on the bottom of the pyramid is because they're pretty easy for an attacker to change.
+
+If you block an attackers IP address from sending out emails, they can just move to a their email server to a different ip address or different email provider.
+
+Especially with the abundance of cloud infrastructure, you can geta new IP address assigned to you pretty quickly and easily.
+
+Not something an attacker is really tied to these days. Especially if they are using anonymous browsing service or something like TOR or an anonymous proxy.
+An attacker's IP address might change around all the time, so not really an effective indicator for us.
+
+Another reason why IP indicators aren't as high value is due to things like Content Delivery Networks, where we have legitimate services like Akamai, that distribute infrastructure across a large network of servers across the world.
+
+If an attacker is doing something like this or rather, abusing it, to mask their true origin of traffic, it makes it hard to track and block.
+
+Also things like FastFlux - technique used by attackers to hide phishing and malware delivery sites behind an ever-changing network of compromised hosts that are acting as proxies. Basic idea is to rapidly change the IP address associated with a domain name.
+
+Obviously makes it much more challenging for us as defenders to block malicious activities based on IP addresses alone, since they're always switching around and hiding behind domain names.
+
+### Domain Names
+
+Slightly more pain than Hash Values and IP Addresses
+A bit more trouble to go about registering a new domian name and dealing with registrars and paying for a domain but not much of a convern for a determined threat actors.
+
+Very large number of DNS providers out there with very lax registration standards, some of which are free.
+So again, in practice its not too hard to change domain names.
+
+However,as we discussing during phishing section, we have technqiues to help with domain abuse, like blocking any new domains created within the last 30 days.
+
+So if an attacker had to run out and register a brand new domain, well we'd proactively be blocking them once again.
+
+However, to turn things back around on us, a determined attacker will likely have multiple domain names already staged with adequate domain ages and ready to go for an attack.
+
+And again, we can typically find domain-related IOC's when we're looking at packet captures, so looking at any DNS requests, or at the live endpoint level,or through dynamic sandboxes. Again looking at any DNS queries that were made and what domains were contacted or sometimes we can find this within the malware itself.
+
+
+
+
+
+
+
+
+
+
 
 
 
